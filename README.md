@@ -43,6 +43,11 @@ python -m http.server 8080
 - **Timeline** ([src/timeline.js](src/timeline.js)) is a d3 area chart of the
   number of planes airborne in each 5-minute bin, and it doubles as the scrubber.
 
+## Deploy
+
+Hosted on Cloudflare Pages (project `airtraffic`). `npm run deploy` copies
+`index.html`, `src/` and `data/` into `dist/` and uploads it with wrangler.
+
 ## Rebuilding the route data
 
 ```sh

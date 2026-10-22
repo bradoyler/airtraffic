@@ -6,6 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "npx --yes http-server@14.1.1 -c-1 -p 8080 .",
-    "data": "node scripts/build-routes.mjs"
+    "data": "node scripts/build-routes.mjs",
+    "stage": "node scripts/stage.mjs",
+    "deploy": "node scripts/stage.mjs && npx --yes wrangler@4 pages deploy dist --project-name airtraffic --branch main"
   }
 }
