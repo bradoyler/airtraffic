@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Air Traffic</title>
+  <meta name="description" content="A canvas animation of a simulated day of US domestic flights.">
+  <link rel="stylesheet" href="src/style.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "d3": "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm",
+        "topojson-client": "https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/+esm"
+      }
+    }
+  </script>
+  <script type="module" src="src/main.js"></script>
+</head>
+<body>
+  <header class="hud">
+    <h1>Air Traffic</h1>
+    <p class="sub">A simulated day of US domestic flights</p>
+    <p class="clock"><span id="clock">5:00 AM</span> <small>ET</small></p>
+    <dl class="stats">
+      <div><dt>In the air</dt><dd id="airborne">0</dd></div>
+      <div><dt>Flights today</dt><dd id="total">0</dd></div>
+    </dl>
+    <section id="airport" class="airport" hidden aria-live="polite">
+      <div class="airport-head">
+        <strong id="ap-code"></strong>
+        <button id="ap-clear" class="link" aria-label="Clear airport filter">Clear ✕</button>
+      </div>
+      <p id="ap-name" class="airport-name"></p>
+      <dl class="stats small">
+        <div><dt><i class="swatch out"></i>Departing now</dt><dd id="ap-out">0</dd></div>
+        <div><dt><i class="swatch in"></i>Arriving now</dt><dd id="ap-in">0</dd></div>
+        <div><dt>Departures</dt><dd id="ap-dep">0</dd></div>
+        <div><dt>Arrivals</dt><dd id="ap-arr">0</dd></div>
+      </dl>
+    </section>
+  </header>
+
+  <main id="stage">
+    <canvas id="base"></canvas>
+    <canvas id="planes"></canvas>
+    <div id="tooltip" class="tooltip" hidden></div>
+  </main>
+
+  <footer class="controls">
+    <button id="play" class="play" aria-pressed="true" aria-label="Pause">
+      <svg class="icon-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/></svg>
+      <svg class="icon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.2v11.6a.6.6 0 0 0 .9.5l9.4-5.8a.6.6 0 0 0 0-1L4.9 1.7a.6.6 0 0 0-.9.5z"/></svg>
+    </button>
+    <div class="speeds" role="group" aria-label="Playback speed">
+      <button data-speed="5">5m/s</button>
+      <button data-speed="15">15m/s</button>
+      <button data-speed="30">30m/s</button>
+      <button data-speed="60">1h/s</button>
+    </div>
+    <svg id="timeline" class="timeline" role="slider" aria-label="Time of day"></svg>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "airtraffic",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Canvas + d3 animation of a simulated day of US domestic flights",
+  "type": "module",
+  "scripts": {
+    "start": "npx --yes http-server@14.1.1 -c-1 -p 8080 .",
+    "data": "node scripts/build-routes.mjs"
+  }
+}
