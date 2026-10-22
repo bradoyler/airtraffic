@@ -1,8 +1,11 @@
 # airtraffic
 
-A canvas animation of a day of US domestic air traffic, inspired by NBC News'
-[Airplane Mode](https://www.nbcnews.com/specials/airplane-mode/). Built with
-plain ES modules and [d3](https://d3js.org) v7. There is no build step.
+A canvas animation of a day of US domestic air traffic. Built with plain ES
+modules and [d3](https://d3js.org) v7. There is no build step.
+
+It revisits [Airplane Mode](https://www.nbcnews.com/specials/airplane-mode/),
+an animation I built for NBC News in 2017 while I was on the NBC News Specials
+team.
 
 ## Run
 
